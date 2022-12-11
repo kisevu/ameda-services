@@ -11,10 +11,20 @@ spring:
           uri: lb://STOCK
           predicates:
             - Path=/api/stock/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                  name: STOCK
+                  fallbackuri: forward:/stockServiceFallBackMethod
         - id: CUSTOMER
           uri: lb://CUSTOMER
           predicates:
             - Path=/api/customers/**
+          filters:
+            - name: CircuitBreaker
+              args:
+                name: CUSTOMER
+                fallbackuri: forward:/customerServiceFallBackMethod
 
 
 eureka:
@@ -25,3 +35,18 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     hostname: localhost
+
+
+hystrix:
+  command:
+    fallbackcmd:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 40000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: hystrix.stream

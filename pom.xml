@@ -13,6 +13,7 @@
         <module>stock</module>
         <module>service-registry</module>
         <module>api-gateway</module>
+        <module>hystrix-dashboard</module>
     </modules>
 
     <name>ameda-services</name>

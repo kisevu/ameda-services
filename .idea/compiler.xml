@@ -11,6 +11,7 @@
         <module name="stock" />
         <module name="service-registry" />
         <module name="customer" />
+        <module name="hystrix-dashboard" />
       </profile>
     </annotationProcessing>
   </component>
