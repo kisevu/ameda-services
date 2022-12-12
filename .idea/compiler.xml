@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="api-gateway" />
         <module name="stock" />
+        <module name="cloud-config-server" />
         <module name="service-registry" />
         <module name="customer" />
         <module name="hystrix-dashboard" />
